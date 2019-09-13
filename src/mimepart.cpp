@@ -363,7 +363,7 @@ bool MimePartPrivate::writeBase64(QIODevice *input, QIODevice *out)
         }
 
         totalRead += in;
-        QByteArray encoded = QByteArray(block, in).toBase64(QByteArray::Base64Encoding | QByteArray::OmitTrailingEquals);
+        QByteArray encoded = QByteArray(block, in).toBase64(QByteArray::Base64Encoding);
         encoded = formatter.format(encoded, chars);
         if (encoded.size() != out->write(encoded)) {
             return false;
